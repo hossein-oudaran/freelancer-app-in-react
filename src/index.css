@@ -181,8 +181,6 @@ table td {
   padding: 1rem 1rem;
   color: rgb(var(--color-secondary-600));
 }
-label {
-  display: block;
-}
+
 
 /*  react tag input */

@@ -3,7 +3,7 @@ import Auth from "./pages/Auth";
 
 function App() {
   return (
-    <div className="container xl:max-w-screen-xl">
+    <div className="container xl:max-w-screen-xl ">
       <Routes>
         <Route path="/auth" element={<Auth />} />
       </Routes>
