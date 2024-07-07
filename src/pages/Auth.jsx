@@ -1,13 +1,9 @@
-import ChechOTPForm from "../features/Authentication/ChechOTPForm";
-import SendOTPForm from "../features/Authentication/SendOTPForm";
+import AuthContainer from "../features/Authentication/AuthContainer";
 
 function Auth() {
   return (
     <div className="flex justify-center pt-10">
-      <div className="w-full sm:max-w-sm">
-        <SendOTPForm />
-        <ChechOTPForm />
-      </div>
+      <AuthContainer />
     </div>
   );
 }

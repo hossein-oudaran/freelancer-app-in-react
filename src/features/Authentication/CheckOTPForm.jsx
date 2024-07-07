@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OTPInput from "react-otp-input";
 
-function ChechOTPForm() {
+function CheckOTPForm() {
   const [otp, setOtp] = useState("");
   return (
     <div>
@@ -27,4 +27,4 @@ function ChechOTPForm() {
   );
 }
 
-export default ChechOTPForm;
+export default CheckOTPForm;
