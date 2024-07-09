@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowCircleRight } from "react-icons/hi";
 import { FaEdit } from "react-icons/fa";
+import Loading from "../../ui/Loading";
 
 const RESEND_TIME = 90;
 
@@ -14,7 +15,7 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
   const navigate = useNavigate();
   const [time, setTime] = useState(RESEND_TIME);
 
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const { isPending, mutateAsync } = useMutation({
     mutationFn: checkOtp,
   });
 
@@ -22,7 +23,6 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
     e.preventDefault();
     try {
       const { message, user } = await mutateAsync({ phoneNumber, otp });
-      console.log(data);
       toast.success(message);
       if (user.isActive) {
       } else {
@@ -78,7 +78,15 @@ function CheckOTPForm({ phoneNumber, onBack, onResendOtp, otpResponse }) {
             borderRadius: "0.5rem",
           }}
         />
-        <button className="btn btn--primary w-full">تأیید</button>
+        <div>
+          {isPending ? (
+            <Loading />
+          ) : (
+            <button type="submit" className="btn btn--primary w-full">
+              تأیید
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );

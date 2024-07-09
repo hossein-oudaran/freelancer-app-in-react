@@ -12,7 +12,7 @@ function SendOTPForm({ onSubmit, isSendingOtp, phoneNumber, onChange }) {
           label="شماره موبایل"
         />
         <div>
-          {isSendingOtp ? (
+          {isSendingOtp ? ( 
             <Loading />
           ) : (
             <button type="submit" className="btn btn--primary w-full">
