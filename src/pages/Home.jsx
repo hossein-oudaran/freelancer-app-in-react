@@ -1,7 +1,7 @@
 
 function Home() {
   return (
-    <div>صفحه اصلی</div>
+    <div className="container xl:max-w-screen-xl ">صفحه اصلی</div>
   )
 }
 
