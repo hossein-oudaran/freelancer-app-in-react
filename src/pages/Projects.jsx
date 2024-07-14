@@ -1,4 +1,4 @@
-import ProjectsTable from "../features/Projects/projectsTable";
+import ProjectsTable from "../features/Projects/ProjectsTableV1";
 
 function Projects() {
   return (

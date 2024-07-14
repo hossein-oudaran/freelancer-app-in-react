@@ -24,9 +24,9 @@ function AuthContainer() {
       toast.error(error?.response?.data?.message);
     }
   };
-  const [step, setStep] = useState(2);
-  const [phoneNumber, setPhoneNumber] = useState("09122222222");
-
+  const [step, setStep] = useState(1);
+  const [phoneNumber, setPhoneNumber] = useState("");
+console.log(phoneNumber);
   function renderStep() {
     switch (step) {
       case 1:
@@ -36,7 +36,7 @@ function AuthContainer() {
             onSubmit={handleSendOtp}
             setStep={setStep}
             phoneNumber={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.vale)}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
         );
       case 2:
