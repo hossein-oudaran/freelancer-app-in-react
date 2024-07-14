@@ -5,11 +5,11 @@ import { toPersianNumbersWithComma } from "../../utils/toPersianNumbers";
 import { truncateText } from "../../utils/trancateText";
 import useOwnerProjects from "./useOwnerProjects";
 
-function ProjectsTable() {
+function ProjectsTableV1() {
   const { isLoading, projects } = useOwnerProjects();
 
   if (isLoading) return <Loading />;
-  if (projects.length) return <Empty resourceName="پروژه" />;
+  if (!projects.length) return <Empty resourceName="پروژه" />;
   return (
     <div className="bg-secondary-0 overflow-x-auto">
       <table>
@@ -60,4 +60,4 @@ function ProjectsTable() {
   );
 }
 
-export default ProjectsTable;
+export default ProjectsTableV1;

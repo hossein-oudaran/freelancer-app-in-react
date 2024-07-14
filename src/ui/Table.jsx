@@ -1,13 +1,16 @@
 function Table({ children }) {
-  return <div className="bg-secondary-0 overflow-x-auto">{children}</div>;
+  return (
+    <div className="bg-secondary-0 overflow-x-auto">
+      <table>{children}</table>
+    </div>
+  );
 }
-
 export default Table;
 
 function TableHeader({ children }) {
   return (
     <thead>
-      <tr className="titel-row">{children}</tr>
+      <tr className="title-row">{children}</tr>
     </thead>
   );
 }
