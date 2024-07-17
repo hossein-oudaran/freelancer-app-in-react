@@ -9,15 +9,14 @@ function DatePickerField({ label, date, setDate }) {
       <DatePicker
         containerClassName="w-full"
         inputClass="textField__input"
+        calendarPosition="bottom-center"
         value={date}
         onChange={(date) => setDate(date)}
-        format="	YYYY/MM/DD"
+        format="YYYY/MM/DD"
         calendar={persian}
         locale={persian_fa}
-        calendarPosition="bottom-center"
       />
     </div>
   );
 }
-
 export default DatePickerField;

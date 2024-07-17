@@ -3,7 +3,7 @@ import Loading from "../../ui/Loading";
 import Empty from "../../ui/Empty";
 import Table from "../../ui/Table";
 import ProjectTableRow from "./ProjectTableRow";
-// const projects = [
+
 //   {
 //     _id: "669391f434279224991339cb",
 //     title: "پروژه ششم",

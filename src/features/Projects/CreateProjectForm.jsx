@@ -5,31 +5,47 @@ import { useState } from "react";
 import { TagsInput } from "react-tag-input-component";
 import DatePickerField from "../../ui/DatePickerField";
 import useCategories from "../../hooks/useCategories";
+import useCreateProject from "./useCreateProject";
+import Loading from "../../ui/Loading";
 
-function CreatProjectForm() {
+function CreateProjectForm({ onClose }) {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const { categories } = useCategories();
+  const { createProject, isCreating } = useCreateProject();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const newProject = {
+      ...data,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+    createProject(newProject, {
+      onSuccess: () => {
+        onClose();
+        reset();
+      },
+    });
+  };
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        label="عنوان پروژه"
+        label="عنوان"
         name="title"
         register={register}
         required
         validationSchema={{
-          required: "نوشتن عنوان پروژه ضروری است",
+          required: "عنوان ضروری است",
           minLength: {
             value: 10,
-            message: "طول عنوان باید بیشتر از 10 کاراکتر باشد",
+            message: "حداقل 10 کاراکتر را وارد کنید",
           },
         }}
         errors={errors}
@@ -61,18 +77,27 @@ function CreatProjectForm() {
       />
       <RHFSelect
         label="دسته بندی"
+        required
         name="category"
         register={register}
-        required
         options={categories}
       />
-      <TagsInput name="tags" onChange={setTags} value={tags} />
+      <div>
+        <label className="mb-2 block text-secondary-700">تگ</label>
+        <TagsInput value={tags} onChange={setTags} name="tags" />
+      </div>
       <DatePickerField date={date} setDate={setDate} label="ددلاین" />
-      <button type="submit" className="btn btn--primary w-full">
-        تأیید
-      </button>
+      <div className="!mt-8">
+        {isCreating ? (
+          <Loading />
+        ) : (
+          <button type="submit" className="btn btn--primary w-full">
+            تأیید
+          </button>
+        )}
+      </div>
     </form>
   );
 }
 
-export default CreatProjectForm;
+export default CreateProjectForm;

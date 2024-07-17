@@ -7,12 +7,13 @@ export default function useCategories() {
     queryFn: getCategoryApi,
   });
 
-  const { categories: rawCatgories = [] } = data || {};
-  const categories = rawCatgories.map((item) => ({
+  const { categories: rawCategories = [] } = data || {};
+  const categories = rawCategories.map((item) => ({
     label: item.title,
     value: item._id,
   }));
-  const transformedCategories = rawCatgories.map((item) => ({
+
+  const transformedCategories = rawCategories.map((item) => ({
     label: item.title,
     value: item.englishTitle,
   }));
