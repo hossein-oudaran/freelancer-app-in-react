@@ -8,6 +8,7 @@ import Modal from "../../ui/Modal";
 import { useState } from "react";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
 
 function ProjectTableRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -22,7 +23,7 @@ function ProjectTableRow({ project, index }) {
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
-      <div className="flex flex-wrap items-center gap-2 max-w-[200px]">
+        <div className="flex flex-wrap items-center gap-2 max-w-[200px]">
           {project.tags.map((tag) => (
             <span className="badge badge--secondary" key={tag}>
               {tag}
@@ -49,7 +50,10 @@ function ProjectTableRow({ project, index }) {
               title={`ویرایش ${project.title}`}
               open={isEditOpen}
             >
-              this is modal
+              <CreateProjectForm
+                onClose={() => setIsEditOpen(false)}
+                projectToEdit={project}
+              />
             </Modal>
           </>
 
