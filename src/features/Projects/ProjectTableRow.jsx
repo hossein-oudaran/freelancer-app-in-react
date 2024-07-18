@@ -1,5 +1,5 @@
 import Table from "../../ui/Table";
-import { truncateText } from "../../utils/trancateText";
+import { truncateText } from "../../utils/truncateText";
 import { toPersianNumbersWithComma } from "../../utils/toPersianNumbers";
 import toLocalDateShort from "../../utils/toLocalDateShort";
 import { HiEye, HiOutlineTrash } from "react-icons/hi";
