@@ -11,8 +11,8 @@ function Header() {
         ${isLoading ? "blur-sm" : ""}
         `}
       >
-        <HeaderMenu />
         <UserAvatar />
+        <HeaderMenu />
       </div>
     </div>
   );
