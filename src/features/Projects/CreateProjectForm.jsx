@@ -43,7 +43,7 @@ function CreateProjectForm({ onClose, projectToEdit = {} }) {
 
   const { categories } = useCategories();
   const { createProject, isCreating } = useCreateProject();
-  const { editProject, isEditing } = useEditProject();
+  const { editProject} = useEditProject();
 
   const onSubmit = (data) => {
     const newProject = {
