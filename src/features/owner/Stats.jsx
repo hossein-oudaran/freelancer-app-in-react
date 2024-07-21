@@ -4,7 +4,7 @@ import {
   HiOutlineViewGrid,
 } from "react-icons/hi";
 import { toPersianNumbers } from "../../utils/toPersianNumbers";
-import Stat from "./Stat";
+import Stat from "../../ui/Stat";
 
 function Stats({ projects }) {
   const numOfProjects = projects.length;
@@ -16,19 +16,19 @@ function Stats({ projects }) {
   return (
     <div className="grid grid-cols-2 gap-x-8">
       <Stat
-      color="primary"
+        color="primary"
         title="پروژه ها"
         value={toPersianNumbers(numOfProjects)}
         icon={<HiOutlineViewGrid className="w-20 h-20 " />}
       />
       <Stat
-      color="green"
+        color="green"
         title="پروژه های واگذار شده"
         value={toPersianNumbers(numOfAcceptedProjetcs)}
         icon={<HiCurrencyDollar className="w-20 h-20" />}
       />
       <Stat
-      color="yellow"
+        color="yellow"
         title="درخواست ها"
         value={toPersianNumbers(numOfProposals)}
         icon={<HiCollection className="w-20 h-20" />}
