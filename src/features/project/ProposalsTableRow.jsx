@@ -34,8 +34,10 @@ function ProposalsTableRow({ proposals, index }) {
       </td>
       <td>{toPersianNumbers(proposals.duration)} روز</td>
       <td>{toPersianNumbersWithComma(proposals.price)}</td>
-      <td className={`badge mt-4 ${statusStyle[proposals.status].className}`}>
-        {statusStyle[proposals.status].label}
+      <td>
+        <span className={`badge ${statusStyle[proposals.status].className}`}>
+          {statusStyle[proposals.status].label}
+        </span>
       </td>
       <td>
         <Modal
