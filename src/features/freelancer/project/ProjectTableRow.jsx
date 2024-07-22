@@ -40,7 +40,7 @@ function ProjectTableRow({ project, index }) {
           onClose={() => setOpen(false)}
           title={`درخواست انجام پروژه ${project.title}`}
         >
-          <CreateProposal projectId={project._id} />
+          <CreateProposal onClose={()=>setOpen(false)} projectId={project._id} />
         </Modal>
         <button onClick={() => setOpen(true)}>
           <MdAssignmentAdd className="w-5 h-5 text-primary-900" />
