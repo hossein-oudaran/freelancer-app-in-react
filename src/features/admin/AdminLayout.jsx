@@ -1,10 +1,10 @@
-import { HiCollection, HiHome } from "react-icons/hi";
+import { HiCollection, HiHome, HiUser } from "react-icons/hi";
+import { GrProjects } from "react-icons/gr";
 import AppLayout from "../../ui/AppLayout";
 import CustomNavLink from "../../ui/CustomNavLink";
 import Sidebar from "../../ui/Sidebar";
-import { GrProjects } from "react-icons/gr";
 
-function FreelancerLayout() {
+function AdminLayout() {
   return (
     <AppLayout>
       <Sidebar>
@@ -12,12 +12,16 @@ function FreelancerLayout() {
           <HiHome />
           <span>داشبورد</span>
         </CustomNavLink>
+        <CustomNavLink to="user">
+          <HiUser />
+          <span>کاربران</span>
+        </CustomNavLink>
         <CustomNavLink to="projects">
           <HiCollection />
           <span>پروژه ها</span>
         </CustomNavLink>
         <CustomNavLink to="proposals">
-          <GrProjects />
+          <GrProjects  />
           <span>درخواست ها</span>
         </CustomNavLink>
       </Sidebar>
@@ -25,4 +29,4 @@ function FreelancerLayout() {
   );
 }
 
-export default FreelancerLayout;
+export default AdminLayout;
