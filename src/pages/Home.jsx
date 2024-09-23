@@ -2,11 +2,14 @@ import { useNavigate } from "react-router-dom";
 import UserAvatar from "../features/Authentication/UserAvatar";
 import useUser from "../features/Authentication/useUser";
 import HeaderMenu from "../ui/HeaderMenu";
-
 function Home() {
+  const { user } = useUser();
   const navigate = useNavigate();
   const handleSignin = () => {
-    navigate("/auth", { replace: true });
+    if (!user) navigate("/auth", { replace: true });
+    if (user.role === "FREELANCER") return navigate("/freelancer/dashboard");
+    if (user.role === "OWNER") return navigate("/owner/dashboard");
+    if (user.role === "ADMIN") return navigate("/admin/dashboard");
   };
 
   const { isLoading } = useUser();
