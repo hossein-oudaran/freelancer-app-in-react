@@ -1,7 +1,14 @@
 import TextField from "../../ui/TextField";
 import Loading from "../../ui/Loading";
+import { useNavigate } from "react-router-dom";
+import { HiArrowCircleRight } from "react-icons/hi";
 
 function SendOTPForm({ onSubmit, isSendingOtp, register }) {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate("/", { replace: true });
+  };
+
   return (
     <div>
       <form className="space-y-8" onSubmit={onSubmit}>
@@ -19,6 +26,9 @@ function SendOTPForm({ onSubmit, isSendingOtp, register }) {
             </button>
           )}
         </div>
+        <button onClick={handleBack}>
+        <HiArrowCircleRight className="w-6 h-6 text-secondary-500 mb-3" />
+        </button>
       </form>
     </div>
   );
